@@ -1,0 +1,82 @@
+.nav {
+  display: flex;
+  /* flex-wrap: wrap;*/
+  justify-content: center;
+  
+}
+
+
+.clusterNav {
+  display: flex;
+  /* The most common mistake is to think that all the items (including the grandchildren divs) are going to be on one horizontal line.  What actually happens is that the 2 child <div>’s print out horizontally, but the grandchildren print out vertically! You will have to use flexbox on the next container */
+  justify-content: space-between;
+/*   space-between: items are evenly distributed in the line; first item is on the start line, last item on the end line */
+}
+
+.buttonCluster {
+  display: flex;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+/*   we can stretch the items in the container by using justify-content. justify-content always works on the “main axis”. When the items are arranged horizontally, the end, center, and space-between feature all work horizontally. When we change it using flex-direction to orient vertically, the same features now work vertically. */
+  justify-content: space-between;
+}
+
+.cardRow {
+  display: flex;
+  flex-wrap: wrap;
+/*   push card to next line if screen is small */
+  justify-content: center;
+/*   gap in between cards */
+  gap: 20px;
+}
+
+.clusterCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gallery {
+  display: grid;
+/*   sets up container to be a grid, no visual changes */
+  
+  grid-template-columns: 1fr 3fr 1fr;
+/*   fr = fraction of the free space in the grid */
+/*  fraction can be mixed with other units (px, em, etc) */
+/*   3 columns */
+}
+
+.complexGallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+/*   same as 1fr 1fr 1fr 1fr 1fr, makes 5 columns */
+  grid-auto-flow: row dense;
+/*   using grid-auto-flow: dense; to indicate that empty spaces should be filled in with later items, even if the order is wrong. */
+/*   also could instead specify row size using grid-template-rows to fix styling but that still leaves empty spaces in the grid */
+}
+
+
+.wide {
+  grid-column: span 5;
+/*   https://css-tricks.com/snippets/css/complete-guide-grid/#aa-grid-columngrid-row */
+/*   stretches until column 5 -> The grid-column: span 5; should elongate “Item 3” 5 units in width. Since the grid is compromised of 5 equally spaced columns, the item should take up the entire row */
+}
+
+.tall {
+  grid-row: span 2;
+/*   The grid-row: span 2; should elongate “Item 6” 2 units in length. In other words, it should take up 2 rows, but remain 1 unit in length.
+ */
+}
+
+.huge {
+  grid-column: span 3;
+  grid-row: span 3;
+}
+
+.outline{
+  border: solid;
+  color: red;
+}
